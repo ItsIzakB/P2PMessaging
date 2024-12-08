@@ -26,10 +26,6 @@ class DecryptMessage:
         print(f'running decryptmessage')
         while True:
             response = self.socket.recv(1024)
-            if not response:
-                print("Server disconnected")
-                break
-
             try:
                 decrypted_message = med.message_decrypt(self.key, response)
                 print(f"Client: {decrypted_message.decode()}")
@@ -51,8 +47,8 @@ class Client:
 
     def start(self):
 
-        encrypt_thread = threading.Thread(target=EncryptMessage(self.c_socket, self.key).run())
-        decrypt_thread = threading.Thread(target=DecryptMessage(self.c_socket, self.key).run())
+        encrypt_thread = threading.Thread(target=EncryptMessage(self.c_socket, self.key).run)
+        decrypt_thread = threading.Thread(target=DecryptMessage(self.c_socket, self.key).run)
 
         encrypt_thread.start()
         decrypt_thread.start()
