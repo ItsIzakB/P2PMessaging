@@ -4,7 +4,7 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 server_socket.bind(('127.0.0.1', 12345))
 
-server_socket.listen(1)
+server_socket.listen(2)
 
 print("Server: Waiting for chatters to join")
 

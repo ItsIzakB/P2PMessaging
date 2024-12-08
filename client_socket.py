@@ -7,6 +7,8 @@ print("Enter your Name: ")
 name = input()
 print("Enter Password: ")
 password = input()
+password = b'password'
+print(password)
 
 c_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 c_socket.connect(('127.0.0.1', 12345))
