@@ -3,11 +3,11 @@ import os
 from cryptography.exceptions import InvalidKey
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-salt = os.urandom(16)
+
 
 
 #derive
-def derive_key(password):
+def derive_key(password, salt):
     kdf = PBKDF2HMAC (
         algorithm = hashes.SHA256(),
         length = 8,
@@ -22,7 +22,7 @@ def derive_key(password):
 
 #verify
 
-def verify_pass(password, key):
+def verify_pass(password, key, salt):
 
     try:
         kdf = PBKDF2HMAC(

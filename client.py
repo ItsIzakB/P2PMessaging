@@ -2,6 +2,7 @@ import socket
 import message_encrypt_and_decrypt as med
 import key_encrypt as kdf
 import threading
+import
 class EncryptMessage:
     def __init__(self, socket, key):
         self.socket = socket
@@ -34,16 +35,18 @@ class DecryptMessage:
 
 class Client:
 
-    def __init__(self, name, password):
+    def __init__(self, name, password, salt):
+        self.salt = salt
         self.name = name
         self.password = password
-        print(password)
+        print(f"Password: {password}")
 
         self.c_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.c_socket.connect(('127.0.0.1', 12345))
 
         print(f"{self.name} connected")
-        self.key = kdf.derive_key(password)
+        self.key = kdf.derive_key(password, self.salt)
+        print(f"Key: {self.key}")
 
     def start(self):
 
