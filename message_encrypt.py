@@ -1,3 +1,8 @@
-import key_encrypt
+import key_encrypt as kdf
 
-password = 'password'
+password = b'password'
+
+
+key = kdf.derive_key(password)
+
+kdf.verify_pass(password, key)

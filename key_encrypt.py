@@ -34,6 +34,8 @@ def verify_pass(password, key):
 
         kdf.verify (password, key)
 
+        print("Password matches")
+
     except InvalidKey as e:
         print("Sorry, but your password is incorrect.")
         print("You will now be reported to the FBI.")
