@@ -33,6 +33,11 @@ while True:
 
     response = c_socket.recv(1024)
 
+
+
     print(f'Server: {response.decode()}')
 
 c_socket.close()
+
+
+
