@@ -4,19 +4,27 @@ def handle_clients(client1, client2):
     while True:
         msg = client1.recv(1024)
 
-        if not msg:
-            print("Client 1 disconnected")
+        try:
+            if msg == 'exit':
+                print("Client 1 Disconnected")
+                break
+            else:
+                client2.send(msg)
+        except Exception as e:
+            print(f"Error dealing with Client 1: {e}")
             break
-
-        client2.send(msg)
 
         msg = client2.recv(1024)
 
-        if not msg:
-            print("Client 2 disconnected")
+        try:
+            if msg == 'exit':
+                print('Client 2 Disconnected')
+                break
+            else:
+                client1.send(msg)
+        except Exception as e:
+            print(f'Error dealing with Client 2: {e}')
             break
-        client1.send(msg)
-
 
     client1.close()
     client2.close()
