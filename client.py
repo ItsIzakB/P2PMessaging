@@ -2,14 +2,13 @@ import socket
 import message_encrypt_and_decrypt as med
 import key_encrypt as kdf
 import threading
-
-
 class EncryptMessage:
     def __init__(self, socket, key):
         self.socket = socket
         self.key = key
 
     def run(self):
+        print(f'running encryptnessage')
         while True:
             message = input("You: ")
             if message.lower == "exit":
@@ -18,13 +17,13 @@ class EncryptMessage:
             encrypted_message = med.message_encrypt(self.key, message.encode())
             self.socket.send(encrypted_message)
 
-
 class DecryptMessage:
     def __init__(self, socket, key):
         self.socket = socket
         self.key = key
 
     def run(self):
+        print(f'running decryptmessage')
         while True:
             response = self.socket.recv(1024)
             if not response:
@@ -37,8 +36,6 @@ class DecryptMessage:
             except ValueError as e:
                 print(f"decryption error:  {e}")
                 break
-
-
 class Client:
 
     def __init__(self, name, password):
@@ -53,6 +50,7 @@ class Client:
         self.key = kdf.derive_key(password)
 
     def start(self):
+
         encrypt_thread = threading.Thread(target=EncryptMessage(self.c_socket, self.key).run())
         decrypt_thread = threading.Thread(target=DecryptMessage(self.c_socket, self.key).run())
 
@@ -62,3 +60,4 @@ class Client:
         encrypt_thread.join()
         decrypt_thread.join()
         self.c_socket.close()
+
