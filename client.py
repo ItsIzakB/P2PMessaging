@@ -35,6 +35,7 @@ class DecryptMessage:
                 print(f"Will disconnect user")
                 break
 
+
 class Client:
 
     def __init__(self, name, password, salt):
