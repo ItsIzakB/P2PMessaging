@@ -8,7 +8,7 @@ server_socket.listen(1)
 
 print("waiting for other guy")
 
-conn, addr = server_socket.accpet()
+conn, addr = server_socket.accept()
 
 print('successful connection')
 
@@ -21,7 +21,7 @@ while True:
     if not data:
         break
 
-    response = input("Hi im the Server")
+    response = input("Server: ")
     conn.send(response.encode())
 
 conn.close()

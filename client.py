@@ -7,8 +7,8 @@ print("Start chatting!")
 
 while True:
 
-    message = input()
-    c_socket.send(message.encode())
+    message = b'input()'
+    c_socket.send(message)
 
     if message.lower() == 'exit':
         print("Exiting the application")
