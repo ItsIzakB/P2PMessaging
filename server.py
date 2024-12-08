@@ -21,7 +21,7 @@ while True:
     if not data:
         break
 
-    response = input("Hi im Alice")
+    response = input("Hi im the Server")
     conn.send(response.encode())
 
 conn.close()
