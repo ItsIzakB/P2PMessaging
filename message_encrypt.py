@@ -3,6 +3,7 @@ import secrets
 from Crypto.Cipher import DES
 from Crypto.Util.Padding import pad
 
+
 password = b'password'
 
 
@@ -19,6 +20,8 @@ print(f"Generated IV : {iv}")
 cipher  = DES.new(key, DES.MODE_CBC, iv=iv)
 
 plaintext = b'hi'
+
+#using a pkcs7 padding style
 padded_plaintext = pad(plaintext, DES.block_size)
 
 ciphertext = cipher.encrypt(padded_plaintext)
