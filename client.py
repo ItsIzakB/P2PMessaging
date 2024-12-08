@@ -32,6 +32,8 @@ class DecryptMessage:
             except ValueError as e:
                 print(f"{response}")
                 print(f"decryption error:  {e}")
+                print(f"Will disconnect user")
+                break
 
 class Client:
 
