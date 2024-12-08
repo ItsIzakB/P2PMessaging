@@ -6,8 +6,7 @@ import key_encrypt as kdf
 class client_socket:
     def __init__(self, name, password):
         self.name = name
-        self.password = password
-        password = b'password'
+        self.password = b'password'
         print(password)
 
         c_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -17,7 +16,7 @@ class client_socket:
 
         while True:
 
-            message = input()
+            message = input(f"{name}: ")
             encoded_message = message.encode()
 
             key = kdf.derive_key(password)
@@ -32,7 +31,7 @@ class client_socket:
 
             response = c_socket.recv(1024)
 
-            message = med.message_decrypt(response)
+            message = med.message_decrypt(key, response)
 
             print(f'Server: {message.decode()}')
 
