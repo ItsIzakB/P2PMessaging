@@ -28,6 +28,7 @@ class DecryptMessage:
             response = self.socket.recv(1024)
             try:
                 decrypted_message = med.message_decrypt(self.key, response)
+                print("")
                 print(f"Client: {decrypted_message}")
             except ValueError as e:
                 print(f"{response}")
@@ -42,14 +43,13 @@ class Client:
         self.salt = salt
         self.name = name
         self.password = password
-        print(f"Password: {password}")
 
         self.c_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.c_socket.connect(('127.0.0.1', 12345))
 
         print(f"{self.name} connected")
         self.key = kdf.derive_key(password, self.salt)
-        print(f"Key: {self.key}")
+        # print(f"Key: {self.key}")
 
     def start(self):
 

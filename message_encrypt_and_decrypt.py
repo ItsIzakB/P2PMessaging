@@ -25,7 +25,7 @@ def message_encrypt(key, plaintext):
 
     ciphertext = cipher.encrypt(padded_plaintext)
     # print(f"Padded Plaintext:  {padded_plaintext}")
-    # print(f"Raw CipherText:  {ciphertext}")
+    print(f"Sent IV + CipherText:  {iv + ciphertext}")
     # print(f"Hex CipherText: {ciphertext.hex()}")
     # print()
 
@@ -42,7 +42,7 @@ def message_decrypt(key, encrypted_message):
 
     if not ciphertext:
         raise ValueError("Ciphertext is missing")
-    # print(f"Encrypted Message: {iv_and_ciphertext}")
+    print(f"Received IV + Ciphertext: {iv_and_ciphertext}")
     # print(f"Length of Encrypted Message: {len(iv_and_ciphertext)}")
 
     #
@@ -57,7 +57,8 @@ def message_decrypt(key, encrypted_message):
         # print(f"Padded Plaintext: {padded_plaintext}")
         plaintext = unpad(padded_plaintext, DES.block_size)
         # print(f"Plaintext: {plaintext.decode()}")
-        return plaintext.decode()
+        final = f" Plaintext: {plaintext.decode()}"
+        return final
     except ValueError as e:
         print(f"Decryption error: {e}")
         raise
