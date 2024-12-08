@@ -5,6 +5,7 @@ salt = os.urandom(16)
 
 #derive
 
+def key
 kdf = PBKDF2HMAC (
     algorithm = hashes.SHA256(),
     length = 32,
