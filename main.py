@@ -19,5 +19,7 @@ kdf = PBKDF2HMAC(
     algorithm = hashes.SHA256(),
     length = 32,
     salt = salt,
-    iterations = 10000
+    iterations = 10000,
 )
+
+kdf.verify (b"password", key)
