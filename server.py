@@ -6,11 +6,11 @@ server_socket.bind(('127.0.0.1', 12345))
 
 server_socket.listen(1)
 
-print("waiting for other guy")
+print("Server: Waiting for chatters to join")
 
 conn, addr = server_socket.accept()
 
-print('successful connection')
+print('Successful connection')
 
 
 while True:
