@@ -10,7 +10,7 @@ salt = os.urandom(16)
 def derive_key(password):
     kdf = PBKDF2HMAC (
         algorithm = hashes.SHA256(),
-        length = 32,
+        length = 8,
         salt = salt,
         iterations=10000,
     )
@@ -27,7 +27,7 @@ def verify_pass(password, key):
     try:
         kdf = PBKDF2HMAC(
             algorithm = hashes.SHA256(),
-            length = 32,
+            length = 8,
             salt = salt,
             iterations = 10000,
         )
