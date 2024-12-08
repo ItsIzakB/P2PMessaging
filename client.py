@@ -10,7 +10,7 @@ class EncryptMessage:
 
     def run(self):
         while True:
-            message = input("You: ")
+            message = input("\nYou: ")
             print()
             if message.lower == "exit":
                 print("Exiting...")
@@ -28,12 +28,11 @@ class DecryptMessage:
             response = self.socket.recv(1024)
             try:
                 decrypted_message = med.message_decrypt(self.key, response)
-                print("")
-                print(f"Client: {decrypted_message}")
+                print(f"\nPlaintext from Client: {decrypted_message}")
             except ValueError as e:
                 print(f"{response}")
-                print(f"decryption error:  {e}")
-                print(f"Will disconnect user")
+                print(f"\ndecryption error:  {e}")
+                print(f"\nWill disconnect user")
                 break
 
 
@@ -53,8 +52,8 @@ class Client:
 
     def start(self):
 
-        encrypt_thread = threading.Thread(target=EncryptMessage(self.c_socket, self.key).run)
         decrypt_thread = threading.Thread(target=DecryptMessage(self.c_socket, self.key).run)
+        encrypt_thread = threading.Thread(target=EncryptMessage(self.c_socket, self.key).run)
 
         encrypt_thread.start()
         decrypt_thread.start()
