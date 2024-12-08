@@ -29,9 +29,11 @@ def message_encrypt(key, plaintext):
 
 
 def message_decrypt(key, encrypted_message):
-    iv_and_ciphertext = base64.b64decode(encrypted_message)
+    iv_and_ciphertext = encrypted_message
     iv = iv_and_ciphertext[:8]
     ciphertext = iv_and_ciphertext[8:]
+
+
 
     cipher = DES.new(key, DES.MODE_CBC, iv)
 

@@ -31,8 +31,14 @@ class client_socket:
 
             response = c_socket.recv(1024)
 
-            message = med.message_decrypt(key, response)
+            if not response:
+                print("Server disconnected")
+                break
 
-            print(f'Server: {message.decode()}')
+            try:
+                message = med.message_decrypt(key, response)
+                print(f'Server: {message.decode()}')
+            except ValueError as e:
+                print(f"Decryption error {e}")
 
         c_socket.close()
