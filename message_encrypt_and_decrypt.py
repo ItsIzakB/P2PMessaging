@@ -24,7 +24,7 @@ def message_encrypt(key, plaintext):
 
 
     ciphertext = cipher.encrypt(padded_plaintext)
-    print(f"Padded Plaintext:  {ciphertext}")
+    print(f"Padded Plaintext:  {padded_plaintext}")
     print(f"Raw CipherText:  {ciphertext}")
     print(f"Hex CipherText: {ciphertext.hex()}")
     print()

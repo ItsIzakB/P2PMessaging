@@ -8,7 +8,6 @@ class EncryptMessage:
         self.key = key
 
     def run(self):
-        print(f'running encryptnessage')
         while True:
             message = input("You: ")
             print()
@@ -24,7 +23,6 @@ class DecryptMessage:
         self.key = key
 
     def run(self):
-        print(f'running decryptmessage')
         while True:
             response = self.socket.recv(1024)
             try:
