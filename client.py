@@ -11,6 +11,7 @@ class EncryptMessage:
         print(f'running encryptnessage')
         while True:
             message = input("You: ")
+            print()
             if message.lower == "exit":
                 print("Exiting...")
                 break
@@ -30,8 +31,9 @@ class DecryptMessage:
                 decrypted_message = med.message_decrypt(self.key, response)
                 print(f"Client: {decrypted_message.decode()}")
             except ValueError as e:
+                print(f"{response}")
                 print(f"decryption error:  {e}")
-                break
+
 class Client:
 
     def __init__(self, name, password):

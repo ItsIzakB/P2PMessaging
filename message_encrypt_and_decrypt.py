@@ -9,6 +9,7 @@ import base64
 
 def message_encrypt(key, plaintext):
 
+    print("Sent Message:")
     block_size = 8 # 56-bits for DES
 
     iv = secrets.token_bytes(block_size)
@@ -21,27 +22,47 @@ def message_encrypt(key, plaintext):
     #using a pkcs7 padding style
     padded_plaintext = pad(plaintext, DES.block_size)
 
+
     ciphertext = cipher.encrypt(padded_plaintext)
+    print(f"Padded Plaintext:  {ciphertext}")
     print(f"Raw CipherText:  {ciphertext}")
     print(f"Hex CipherText: {ciphertext.hex()}")
+    print()
 
-    return ciphertext
+    return iv + ciphertext
 
 
 def message_decrypt(key, encrypted_message):
+
+    print("Retrieved Message: ")
+
+
     iv_and_ciphertext = encrypted_message
     iv = iv_and_ciphertext[:8]
     ciphertext = iv_and_ciphertext[8:]
 
+    if not ciphertext:
+        raise ValueError("Ciphertext is missing")
+    print(f"Encrypted Message: {iv_and_ciphertext}")
+    print(f"Length of Encrypted Message: {len(iv_and_ciphertext)}")
 
+
+    print(f"IV: {iv}")
+    print(f"Ciphertext: {ciphertext}")
+    print(f"Ciphertext Length: {len(ciphertext)}")
 
     cipher = DES.new(key, DES.MODE_CBC, iv)
 
-    padded_plaintext = cipher.decrypt(ciphertext)
+    try:
+        padded_plaintext = cipher.decrypt(ciphertext)
+        print(f"Padded Plaintext: {padded_plaintext}")
+        plaintext = unpad(padded_plaintext, DES.block_size)
+        print(f"Plaintext: {plaintext.decode()}")
+        return plaintext.decode()
+    except ValueError as e:
+        print(f"Decryption error: {e}")
+        raise
 
-    plaintext = unpad(padded_plaintext, DES.block_size)
-
-    return plaintext.decode()
 
 
 
