@@ -2,7 +2,7 @@ import socket
 import message_encrypt_and_decrypt as med
 import key_encrypt as kdf
 import threading
-import
+
 class EncryptMessage:
     def __init__(self, socket, key):
         self.socket = socket
@@ -28,7 +28,7 @@ class DecryptMessage:
             response = self.socket.recv(1024)
             try:
                 decrypted_message = med.message_decrypt(self.key, response)
-                print(f"Client: {decrypted_message.decode()}")
+                print(f"Client: {decrypted_message}")
             except ValueError as e:
                 print(f"{response}")
                 print(f"decryption error:  {e}")
