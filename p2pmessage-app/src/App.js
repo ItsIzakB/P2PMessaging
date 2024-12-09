@@ -10,9 +10,6 @@ function App() {
       <main>
 
       <div id = "chat-window">
-
-
-
       </div>
 
       <div id = "message-input">
