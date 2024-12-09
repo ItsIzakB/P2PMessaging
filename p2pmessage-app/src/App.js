@@ -16,7 +16,7 @@ function App() {
       </div>
 
       <div id = "message-input">
-        <input type="text" place
+        <input type="text" placeholder = "You: " />
 
       </div>
 
