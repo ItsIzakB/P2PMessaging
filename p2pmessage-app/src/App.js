@@ -15,6 +15,11 @@ function App() {
 
       </div>
 
+      <div id = "message-input">
+        <input type="text" place
+
+      </div>
+
 
       </main>
     </div>
