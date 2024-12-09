@@ -5,7 +5,6 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 
-# derive
 def derive_key(password, salt):
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
@@ -19,7 +18,6 @@ def derive_key(password, salt):
     return key
 
 
-# verify
 
 def verify_pass(password, key, salt):
     try:
