@@ -5,12 +5,9 @@ from Crypto.Util.Padding import pad, unpad
 import base64
 
 
-
-
 def message_encrypt(key, plaintext):
-
     # print("Sent Message:")
-    block_size = 8 # 56-bits for DES
+    block_size = 8  # 56-bits for DES
 
     iv = secrets.token_bytes(block_size)
 
@@ -18,24 +15,15 @@ def message_encrypt(key, plaintext):
 
     cipher = DES.new(key, DES.MODE_CBC, iv=iv)
 
-
-    #using a pkcs7 padding style
+    # using a pkcs7 padding style
     padded_plaintext = pad(plaintext, DES.block_size)
 
-
     ciphertext = cipher.encrypt(padded_plaintext)
-    # print(f"Padded Plaintext:  {padded_plaintext}")
     print(f"Sent IV + CipherText:  {iv + ciphertext}")
-    # print(f"Hex CipherText: {ciphertext.hex()}")
-    # print()
-
     return iv + ciphertext
 
 
 def message_decrypt(key, encrypted_message):
-
-
-
     iv_and_ciphertext = encrypted_message
     iv = iv_and_ciphertext[:8]
     ciphertext = iv_and_ciphertext[8:]
@@ -61,10 +49,3 @@ def message_decrypt(key, encrypted_message):
     except ValueError as e:
         print(f"Decryption error: {e}")
         raise
-
-
-
-
-
-
-
