@@ -13,7 +13,7 @@ class EncryptMessage:
         while True:
             message = input()
             print()
-            if message.lower == "exit":
+            if message.lower == b"exit":
                 print("Exiting...")
                 break
             encrypted_message = med.message_encrypt(self.key, message.encode())
