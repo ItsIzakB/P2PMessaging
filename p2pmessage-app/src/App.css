@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.App-header{
+    min-height: 100vh;
+
+}
+
 #chat-window {
     height: 300px;
     overflow-y:scroll;
