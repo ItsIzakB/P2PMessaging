@@ -35,6 +35,10 @@ input{
   padding: 10px;
 
 }
+button{
+  border: 1px black;
+  
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
