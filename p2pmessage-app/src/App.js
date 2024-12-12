@@ -13,7 +13,7 @@ function App() {
       </div>
 
       <div id = "message-input">
-        <input type="text" placeholder = "You: " />
+        <input type="text" placeholder = "Write a message" />
         <button>Send</button>
 
       </div>
