@@ -17,7 +17,8 @@ function App() {
 
   return () => {
     socket.off("message");
-  }
+  };
+}, []);
 
 
 
