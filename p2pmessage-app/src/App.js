@@ -1,7 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import ChatWindow from "./ChatWindow";
+import {io} from "socket.io-client";
+
+const socket = io("http://localhost:12345")
 
 function App() {
+  const[messages, setMessages] = useState([]);
+  const[input, setInput] = useState("");
+  
+  useEffect(() => {
+    socket.on("message", (message) =>
+    setMessages((prev) => [...prev, message]));
+    
+  });
+
+  return () => {
+    socket.off("message");
+  };
+}, []);
+
+  const sendMessage = () =>
+
+
+
   return (
     <div className="App">
       <header className="App-header">
