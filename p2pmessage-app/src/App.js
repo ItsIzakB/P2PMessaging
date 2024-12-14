@@ -1,11 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import ChatWindow from "./ChatWindow";
+import {io} from "socket.io-client";
 
 function App() {
   const[messages, setMessages] = useState([]);
   const[input, setInput] = useState("");
-
+  
+  useEffect(() => {
+    
+  })
 
 
 
