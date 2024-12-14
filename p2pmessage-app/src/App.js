@@ -4,7 +4,7 @@ import ChatWindow from "./ChatWindow";
 
 function App() {
   const[messages, setMessages] = useState([]);
-
+  const[input, setInput] = useState("");
 
 
 
