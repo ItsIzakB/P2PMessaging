@@ -20,6 +20,8 @@ function App() {
   };
 }, []);
 
+  const sendMessage = () =>
+
 
 
   return (
