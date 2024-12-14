@@ -10,7 +10,8 @@ function App() {
   const[input, setInput] = useState("");
   
   useEffect(() => {
-    socket
+    socket.on("message", (message) =>
+    setMessages((prev) ))
     
   })
 
