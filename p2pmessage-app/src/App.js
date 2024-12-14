@@ -11,9 +11,13 @@ function App() {
   
   useEffect(() => {
     socket.on("message", (message) =>
-    setMessages((prev) ))
+    setMessages((prev) => [...prev, message]));
     
-  })
+  });
+
+  return () => {
+    socket.off("message");
+  }
 
 
 
