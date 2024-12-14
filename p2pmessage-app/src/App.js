@@ -3,7 +3,7 @@ import './App.css';
 import ChatWindow from "./ChatWindow";
 
 function App() {
-  const[messages, setMessages]
+  const[messages, setMessages] = useState([]);
 
 
 
