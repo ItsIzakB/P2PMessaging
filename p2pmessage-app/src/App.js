@@ -3,11 +3,14 @@ import './App.css';
 import ChatWindow from "./ChatWindow";
 import {io} from "socket.io-client";
 
+const socket = io("http://localhost:12345")
+
 function App() {
   const[messages, setMessages] = useState([]);
   const[input, setInput] = useState("");
   
   useEffect(() => {
+    socket
     
   })
 
