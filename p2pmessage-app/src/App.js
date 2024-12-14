@@ -3,9 +3,9 @@ import './App.css';
 import ChatWindow from "./ChatWindow";
 
 function App() {
+  const[messages, setMessages]
 
 
-j
 
 
 
