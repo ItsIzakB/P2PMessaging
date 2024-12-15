@@ -20,7 +20,9 @@ function App() {
   };
 }, []);
 
-  const sendMessage = () =>
+  const sendMessage = () => {
+    socket.emit("message", input);
+  }
 
 
 
