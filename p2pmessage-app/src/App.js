@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import ChatWindow from "./ChatWindow";
 import {io} from "socket.io-client";
+import React, {useState, useEffect}
 
 const socket = io("http://localhost:12345")
 
