@@ -13,7 +13,7 @@ function App() {
     socket.on("message", (message) =>
     setMessages((prev) => [...prev, message]));
     
-  });
+
 
   return () => {
     socket.off("message");
