@@ -22,6 +22,8 @@ function App() {
 
   const sendMessage = () => {
     socket.emit("message", input);
+    setMessages([...messages, input]);
+    setInput("");
   }
 
 
