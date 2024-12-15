@@ -48,7 +48,7 @@ function App() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         />
-        <button>Send</button>
+        <button oncLick={sendMessage}>Send</button>
 
       </div>
 
