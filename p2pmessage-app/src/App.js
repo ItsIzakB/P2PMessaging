@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import ChatWindow from "./ChatWindow";
 import {io} from "socket.io-client";
-import React, {useState, useEffect}
+import React, {useState, useEffect} from "react";
 
-const socket = io("http://localhost:12345")
+const socket = io("http://localhost:12345");
 
 function App() {
   const[messages, setMessages] = useState([]);
