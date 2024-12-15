@@ -37,6 +37,7 @@ function App() {
       <main>
 
       <div id = "chat-window">
+        {messages.map(msg,index)}
       </div>
 
       <div id = "message-input">
