@@ -1,7 +1,6 @@
 import socket
 import threading
 
-
 def handle_clients(client1, client2):
     while True:
         msg = client1.recv(1024)
